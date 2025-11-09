@@ -24,8 +24,11 @@ limitations under the License.
 /**
  * Change these to match the column names you are using for email 
  * recipient addresses and email sent column.
-*/
-const RECIPIENT_COL  = "Recipient";
+ */
+
+/*
+Copied to mail_merge_config.gs
+const RECIPIENT_COL  = "Email";
 const EMAIL_SENT_COL = "Email Sent";
 const EMAIL_SUBJECTS = Object.freeze(["mail merge test 1", "mail merge test 2"]);
 const EMAIL_SENDER = "communications@fruitbowlfriends.org"
@@ -41,6 +44,7 @@ var emailMenuItems = [];
     this[functionName] = () => sendEmails(subject);
   }
 })();
+*/
 
 function onOpen() {
       var ui = SpreadsheetApp.getUi();
@@ -126,9 +130,9 @@ function sendEmails(subjectLine, sheet=SpreadsheetApp.getActiveSheet()) {
     }
   });
 
-  let sendOk = Browser.msgBox("Send " + recipients.length +
+  let send_yes_no = Browser.msgBox("Send " + recipients.length +
       " emails to " + recipients.join(", ") + ".", Browser.Buttons.YES_NO);
-  if (!sendOk) {
+  if (send_yes_no != "yes") {
     return;
   }
 
