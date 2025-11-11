@@ -46,7 +46,7 @@ var emailMenuItems = [];
 })();
 */
 
-function onOpen() {
+function mail_merge_onOpen() {
       var ui = SpreadsheetApp.getUi();
       var menu = ui.createMenu("Mail Merge");
       emailMenuItems.forEach( O => menu.addItem(O[0], O[1]) );
